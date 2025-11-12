@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://neomp181hre3"]
+
+[ext_resource type="Script" uid="uid://sdbng7v5pi57" path="res://scenes/pause_menu.gd" id="1_n87rw"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_n87rw")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0, 0.270588, 0.513726)
+
+[node name="Header" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.282
+anchor_right = 1.0
+anchor_bottom = 0.282
+offset_top = -101.52
+offset_bottom = 108.48
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="Header"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "RESUME"
+
+[node name="Label2" type="Label" parent="Header"]
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="Header"]
+process_mode = 3
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "QUIT TO MENU"
+
+[connection signal="pressed" from="Header/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Header/Quit" to="." method="_on_quit_pressed"]

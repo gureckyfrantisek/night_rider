@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvrassaqav31h"]
+
+[ext_resource type="Texture2D" uid="uid://csbw7c4jusv84" path="res://assets/my_assets/Cone.png" id="1_dl8us"]
+[ext_resource type="Script" uid="uid://iujg5e1411bn" path="res://scripts/collision_cone.gd" id="1_pf2dr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl8us"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf2dr"]
+size = Vector2(32.0001, 31.9999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rb12"]
+size = Vector2(32.0001, 31.9999)
+
+[node name="Cone" type="RigidBody2D"]
+collision_layer = 128
+collision_mask = 131
+gravity_scale = 0.0
+script = ExtResource("1_pf2dr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_dl8us")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dl8us")
+
+[node name="Grass" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass"]
+position = Vector2(4.76837e-07, 0)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_pf2dr")
+
+[node name="Water" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(4.76837e-07, 0)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_2rb12")
+
+[connection signal="body_entered" from="Grass" to="." method="_on_grass_body_entered"]
+[connection signal="body_exited" from="Grass" to="." method="_on_grass_body_exited"]
+[connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]
+[connection signal="body_exited" from="Water" to="." method="_on_water_body_exited"]

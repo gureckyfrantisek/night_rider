@@ -1,0 +1,56 @@
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://be1rqmswlbawm"]
+
+[ext_resource type="Texture2D" uid="uid://bu6qsjdqcmf1j" path="res://assets/tiles/Background_Tiles/Grass_Tile.png" id="1_nbteo"]
+[ext_resource type="Texture2D" uid="uid://5dkkunqb3gdt" path="res://assets/tiles/Background_Tiles/Soil_Tile.png" id="2_k1ole"]
+[ext_resource type="Texture2D" uid="uid://ccaqi1txus4mc" path="res://assets/tiles/Background_Tiles/Water_Tile.png" id="3_vxv8f"]
+[ext_resource type="Texture2D" uid="uid://xdwmgryocjto" path="res://assets/tiles/Background_Tiles/Finish_tile.png" id="4_k1ole"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k1ole"]
+bounce = 0.2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pa8r4"]
+friction = 0.5
+rough = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcfvj"]
+texture = ExtResource("1_nbteo")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3sih"]
+texture = ExtResource("2_k1ole")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2y5yt"]
+texture = ExtResource("3_vxv8f")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pa8r4"]
+resource_name = "outside"
+texture = ExtResource("1_nbteo")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxv8f"]
+texture = ExtResource("4_k1ole")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_k1ole")
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 16
+physics_layer_1/collision_priority = 0.0
+physics_layer_1/physics_material = SubResource("PhysicsMaterial_pa8r4")
+sources/0 = SubResource("TileSetAtlasSource_fcfvj")
+sources/1 = SubResource("TileSetAtlasSource_e3sih")
+sources/2 = SubResource("TileSetAtlasSource_2y5yt")
+sources/3 = SubResource("TileSetAtlasSource_pa8r4")
+sources/5 = SubResource("TileSetAtlasSource_vxv8f")

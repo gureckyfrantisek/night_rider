@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://cye4xtr77otsd"]
+
+[ext_resource type="Texture2D" uid="uid://6kc24wiu42n1" path="res://assets/my_assets/BoostPad1.png" id="1_22kv3"]
+[ext_resource type="Script" uid="uid://dhdcldiuhwiuc" path="res://scripts/boost_pad.gd" id="1_feeuh"]
+[ext_resource type="Texture2D" uid="uid://dwtov23g3w036" path="res://assets/my_assets/BoostPad2.png" id="2_feeuh"]
+[ext_resource type="Texture2D" uid="uid://dp7ls4uyee7kw" path="res://assets/my_assets/BoostPad3.png" id="3_mpxq6"]
+[ext_resource type="Texture2D" uid="uid://cohsyc34a016p" path="res://assets/my_assets/BoostPad4.png" id="4_nj8m8"]
+[ext_resource type="Texture2D" uid="uid://yshypup8oraq" path="res://assets/my_assets/BoostPad5.png" id="5_pj1ke"]
+[ext_resource type="Texture2D" uid="uid://dhc3qng5jirpd" path="res://assets/my_assets/BoostPad6.png" id="6_fbb63"]
+[ext_resource type="Texture2D" uid="uid://d27c2m3h7aqfx" path="res://assets/my_assets/BoostPad7.png" id="7_rocux"]
+[ext_resource type="Texture2D" uid="uid://c5vrgow60tgiv" path="res://assets/my_assets/BoostPad8.png" id="8_f6gc8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0s120"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_22kv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_feeuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mpxq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nj8m8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pj1ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fbb63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rocux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_f6gc8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22kv3"]
+size = Vector2(64, 64)
+
+[node name="BoostPad" type="Node2D"]
+script = ExtResource("1_feeuh")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0s120")
+frame_progress = 0.988905
+
+[node name="BoostArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoostArea"]
+shape = SubResource("RectangleShape2D_22kv3")

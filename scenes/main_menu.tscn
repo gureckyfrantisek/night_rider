@@ -1,0 +1,148 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk3x7hwmcbjtr"]
+
+[ext_resource type="Script" uid="uid://uqtnguw2k512" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_l6cm7")
+
+[node name="Background" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0384772, 1.26343e-06, 0.270617, 1)
+
+[node name="Header" type="VBoxContainer" parent="."]
+process_mode = 3
+anchors_preset = -1
+anchor_top = 0.282
+anchor_right = 1.0
+anchor_bottom = 0.282
+offset_top = -101.52
+offset_bottom = 108.48
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Night Rider"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Level selection:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Levels" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelsTop" type="HBoxContainer" parent="Levels"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level1" type="Button" parent="Levels/LevelsTop"]
+custom_minimum_size = Vector2(75, 40)
+layout_mode = 2
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="Levels/LevelsTop"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="Levels/LevelsTop"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Level 3"
+
+[node name="Level4" type="Button" parent="Levels/LevelsTop"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Level 4"
+
+[node name="Level5" type="Button" parent="Levels/LevelsTop"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Level 5"
+
+[node name="LevelsBot" type="HBoxContainer" parent="Levels"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level6" type="Button" parent="Levels/LevelsBot"]
+custom_minimum_size = Vector2(75, 40)
+layout_mode = 2
+text = "Level 6"
+
+[node name="Level7" type="Button" parent="Levels/LevelsBot"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Level 7"
+
+[node name="Level8" type="Button" parent="Levels/LevelsBot"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Level 8"
+
+[node name="Level9" type="Button" parent="Levels/LevelsBot"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Level 9"
+
+[node name="Level10" type="Button" parent="Levels/LevelsBot"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "Level 10"
+
+[node name="QuitContainer" type="HBoxContainer" parent="Levels"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quit" type="Button" parent="Levels/QuitContainer"]
+custom_minimum_size = Vector2(75, 40)
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="mouse_entered" from="Levels/LevelsTop/Level1" to="." method="_on_level_1_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsTop/Level1" to="." method="_on_level_1_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsTop/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsTop/Level2" to="." method="_on_level_2_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsTop/Level2" to="." method="_on_level_2_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsTop/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsTop/Level3" to="." method="_on_level_3_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsTop/Level3" to="." method="_on_level_3_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsTop/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsTop/Level4" to="." method="_on_level_4_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsTop/Level4" to="." method="_on_level_4_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsTop/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsTop/Level5" to="." method="_on_level_5_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsTop/Level5" to="." method="_on_level_5_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsTop/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsBot/Level6" to="." method="_on_level_6_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsBot/Level6" to="." method="_on_level_6_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsBot/Level6" to="." method="_on_level_6_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsBot/Level7" to="." method="_on_level_7_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsBot/Level7" to="." method="_on_level_7_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsBot/Level7" to="." method="_on_level_7_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsBot/Level8" to="." method="_on_level_8_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsBot/Level8" to="." method="_on_level_8_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsBot/Level8" to="." method="_on_level_8_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsBot/Level9" to="." method="_on_level_9_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsBot/Level9" to="." method="_on_level_9_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsBot/Level9" to="." method="_on_level_9_pressed"]
+[connection signal="mouse_entered" from="Levels/LevelsBot/Level10" to="." method="_on_level_10_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/LevelsBot/Level10" to="." method="_on_level_10_mouse_exited"]
+[connection signal="pressed" from="Levels/LevelsBot/Level10" to="." method="_on_level_10_pressed"]
+[connection signal="pressed" from="Levels/QuitContainer/Quit" to="." method="_on_quit_pressed"]
