@@ -11,6 +11,9 @@ func level_done():
 		Times.level2 = Times.last_played
 		Times.was_new_best = true
 	
+	# Call save data
+	Times.save_data()
+	
 	$UI.stop_ui
 	$UI.visible = false
 	$Player.movement_disabled = true

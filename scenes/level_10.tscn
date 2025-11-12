@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://csfd7flmnl8ts"]
+[gd_scene load_steps=8 format=4 uid="uid://csfd7flmnl8ts"]
 
 [ext_resource type="Script" uid="uid://dr0mh0tdji2x2" path="res://scripts/level_10.gd" id="1_yo2sm"]
 [ext_resource type="PackedScene" uid="uid://bvrassaqav31h" path="res://scenes/collision_cone.tscn" id="3_ng28g"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjpf8e1m2qix0" path="res://scenes/player.tscn" id="4_yxmu7"]
 [ext_resource type="PackedScene" uid="uid://q58ddm5yhy1f" path="res://scenes/finish.tscn" id="5_7d08f"]
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="6_68dkj"]
+[ext_resource type="PackedScene" uid="uid://cye4xtr77otsd" path="res://scenes/boost_pad.tscn" id="7_uk14l"]
 
 [node name="Level10" type="Node2D"]
 script = ExtResource("1_yo2sm")
@@ -111,3 +112,6 @@ text = "Laps left: "
 
 [node name="Timer" type="Timer" parent="UI"]
 wait_time = 600.0
+
+[node name="BoostPad" parent="." instance=ExtResource("7_uk14l")]
+position = Vector2(128, -104)
