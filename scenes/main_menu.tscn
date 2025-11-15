@@ -124,6 +124,43 @@ custom_minimum_size = Vector2(75, 40)
 layout_mode = 2
 text = "QUIT"
 
+[node name="Settings" type="VBoxContainer" parent="."]
+offset_top = 607.0
+offset_right = 1280.0
+offset_bottom = 676.0
+
+[node name="Label" type="Label" parent="Settings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Quick settings:"
+horizontal_alignment = 1
+
+[node name="Camera" type="HBoxContainer" parent="Settings"]
+layout_mode = 2
+alignment = 1
+
+[node name="Fixed" type="CheckButton" parent="Settings/Camera"]
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Fixed camera: "
+
+[node name="Sounds" type="HBoxContainer" parent="Settings"]
+layout_mode = 2
+alignment = 1
+
+[node name="Music" type="CheckButton" parent="Settings/Sounds"]
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Music:"
+
+[node name="Sounds" type="CheckButton" parent="Settings/Sounds"]
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "SFX:"
+
 [connection signal="mouse_entered" from="Levels/LevelsTop/Level1" to="." method="_on_level_1_mouse_entered"]
 [connection signal="mouse_exited" from="Levels/LevelsTop/Level1" to="." method="_on_level_1_mouse_exited"]
 [connection signal="pressed" from="Levels/LevelsTop/Level1" to="." method="_on_level_1_pressed"]
@@ -158,3 +195,6 @@ text = "QUIT"
 [connection signal="mouse_exited" from="Levels/BONUS/Bonus" to="." method="_on_bonus_mouse_exited"]
 [connection signal="pressed" from="Levels/BONUS/Bonus" to="." method="_on_bonus_pressed"]
 [connection signal="pressed" from="Levels/QuitContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="Settings/Camera/Fixed" to="." method="_on_fixed_toggled"]
+[connection signal="toggled" from="Settings/Sounds/Music" to="." method="_on_music_toggled"]
+[connection signal="toggled" from="Settings/Sounds/Sounds" to="." method="_on_sounds_toggled"]

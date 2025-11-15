@@ -4,6 +4,9 @@ var time_precission = 0.001
 
 func _ready():
 	get_tree().paused = false
+	$Settings/Camera/Fixed.button_pressed = Settings.camera_fixed
+	$Settings/Sounds/Music.button_pressed = Settings.music
+	$Settings/Sounds/Sounds.button_pressed = Settings.sounds
 
 func _on_level_1_mouse_entered():
 	if Times.level1 == null:
@@ -152,3 +155,18 @@ func _on_bonus_mouse_entered() -> void:
 
 func _on_bonus_mouse_exited() -> void:
 	$Levels/BONUS/Bonus.text = 'BONUS'
+
+
+func _on_fixed_toggled(toggled_on: bool) -> void:
+	Settings.camera_fixed = $Settings/Camera/Fixed.button_pressed
+	Settings.save_settings()
+
+
+func _on_music_toggled(toggled_on: bool) -> void:
+	Settings.music = $Settings/Sounds/Music.button_pressed
+	Settings.save_settings()
+
+
+func _on_sounds_toggled(toggled_on: bool) -> void:
+	Settings.sounds = $Settings/Sounds/Sounds.button_pressed
+	Settings.save_settings()

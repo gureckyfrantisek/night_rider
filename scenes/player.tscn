@@ -77,6 +77,12 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+rotation = 1.5708
+ignore_rotation = false
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 2.5
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_ur7pv")]
 visible = false

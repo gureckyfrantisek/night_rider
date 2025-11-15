@@ -53,6 +53,10 @@ var traction_fast = 1.25
 #var traction_slow = 2.5
 #var traction_fast = 1.25
 
+func _ready():
+	setup_camera()
+	setup_sounds()
+
 func get_input(delta):
 	var turn = Input.get_axis("steer_left", "steer_right")
 	
@@ -134,6 +138,27 @@ func _physics_process(delta):
 		if c.get_collider() is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * last_velo.length()/10)
 	
+func setup_camera():
+	if not Settings.camera_fixed:
+		$Camera2D.ignore_rotation = false
+		$Camera2D.position_smoothing_enabled = false
+		$Camera2D.rotation_smoothing_enabled = false
+	else:
+		$Camera2D.ignore_rotation = true
+		$Camera2D.position_smoothing_enabled = true
+		$Camera2D.position_smoothing_speed = 15.0
+		$Camera2D.rotation_smoothing_enabled = true
+		$Camera2D.rotation_smoothing_speed = 2.5
+
+func setup_sounds():
+	var sounds = $Sounds.get_children()
+	
+	if Settings.sounds:
+		for sound in sounds:
+			sound.volume_db = 0
+	else:
+		for sound in sounds:
+			sound.volume_linear = 0
 
 func _on_grass_body_entered(body):
 	is_on_grass = true
