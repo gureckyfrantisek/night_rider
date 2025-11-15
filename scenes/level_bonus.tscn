@@ -33,7 +33,7 @@ tile_set = ExtResource("2_8wk2e")
 position = Vector2(208, -752)
 
 [node name="Cone2" parent="Parts/Cones" instance=ExtResource("3_5bl0a")]
-position = Vector2(128, -1728)
+position = Vector2(208, -2192)
 
 [node name="Cone3" parent="Parts/Cones" instance=ExtResource("3_5bl0a")]
 position = Vector2(784, -2544)
