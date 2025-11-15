@@ -106,6 +106,15 @@ custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Level 10"
 
+[node name="BONUS" type="HBoxContainer" parent="Levels"]
+layout_mode = 2
+alignment = 1
+
+[node name="Bonus" type="Button" parent="Levels/BONUS"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "BONUS"
+
 [node name="QuitContainer" type="HBoxContainer" parent="Levels"]
 layout_mode = 2
 alignment = 1
@@ -145,4 +154,7 @@ text = "QUIT"
 [connection signal="mouse_entered" from="Levels/LevelsBot/Level10" to="." method="_on_level_10_mouse_entered"]
 [connection signal="mouse_exited" from="Levels/LevelsBot/Level10" to="." method="_on_level_10_mouse_exited"]
 [connection signal="pressed" from="Levels/LevelsBot/Level10" to="." method="_on_level_10_pressed"]
+[connection signal="mouse_entered" from="Levels/BONUS/Bonus" to="." method="_on_bonus_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/BONUS/Bonus" to="." method="_on_bonus_mouse_exited"]
+[connection signal="pressed" from="Levels/BONUS/Bonus" to="." method="_on_bonus_pressed"]
 [connection signal="pressed" from="Levels/QuitContainer/Quit" to="." method="_on_quit_pressed"]

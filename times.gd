@@ -13,6 +13,7 @@ var level7 = null
 var level8 = null
 var level9 = null
 var level10 = null
+var bonus = null
 
 
 # File saving
@@ -33,7 +34,8 @@ func save_data():
 		"level7": level7,
 		"level8": level8,
 		"level9": level9,
-		"level10": level10
+		"level10": level10,
+		"bonus": bonus
 	}
 
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
@@ -61,3 +63,4 @@ func load_data():
 			level8 = result.get("level8", null)
 			level9 = result.get("level9", null)
 			level10 = result.get("level10", null)
+			bonus = result.get("bonus", null)

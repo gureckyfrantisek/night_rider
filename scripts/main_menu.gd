@@ -137,3 +137,18 @@ func _on_level_10_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_bonus_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level_bonus.tscn")
+
+
+func _on_bonus_mouse_entered() -> void:
+	if Times.bonus == null:
+		$Levels/BONUS/Bonus.text = 'BONUS\nNo time yet\nPlay'
+	else:
+		$Levels/BONUS/Bonus.text = 'BONUS\nTime: ' + str(snappedf(Times.bonus, time_precission)) + 's\nPlay'
+
+
+func _on_bonus_mouse_exited() -> void:
+	$Levels/BONUS/Bonus.text = 'BONUS'
