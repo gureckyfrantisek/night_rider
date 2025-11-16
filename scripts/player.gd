@@ -139,16 +139,16 @@ func _physics_process(delta):
 			c.get_collider().apply_central_impulse(-c.get_normal() * last_velo.length()/10)
 	
 func setup_camera():
-	if not Settings.camera_fixed:
-		$Camera2D.ignore_rotation = false
+	if Settings.camera_fixed:
+		$Camera2D.ignore_rotation = true
 		$Camera2D.position_smoothing_enabled = false
 		$Camera2D.rotation_smoothing_enabled = false
 	else:
-		$Camera2D.ignore_rotation = true
+		$Camera2D.ignore_rotation = false
 		$Camera2D.position_smoothing_enabled = true
 		$Camera2D.position_smoothing_speed = 15.0
 		$Camera2D.rotation_smoothing_enabled = true
-		$Camera2D.rotation_smoothing_speed = 2.5
+		$Camera2D.rotation_smoothing_speed = 3.5
 
 func setup_sounds():
 	var sounds = $Sounds.get_children()
