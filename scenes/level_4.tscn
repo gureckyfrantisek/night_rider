@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dkk2846wmsp0j"]
+[gd_scene load_steps=8 format=4 uid="uid://dkk2846wmsp0j"]
 
 [ext_resource type="Script" uid="uid://dxxsfr2wq7qku" path="res://scripts/level_4.gd" id="1_wom6i"]
 [ext_resource type="TileSet" uid="uid://dbmqlp8mrhdsd" path="res://assets/my_map.tres" id="3_qsmat"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvrassaqav31h" path="res://scenes/collision_cone.tscn" id="3_ycko3"]
 [ext_resource type="PackedScene" uid="uid://q58ddm5yhy1f" path="res://scenes/finish.tscn" id="4_qsmat"]
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="5_yk4f3"]
+[ext_resource type="PackedScene" uid="uid://b2hymui64x4pb" path="res://scenes/checkpoint.tscn" id="7_x7blo"]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_wom6i")
@@ -81,3 +82,8 @@ text = "Laps left: "
 
 [node name="Timer" type="Timer" parent="UI"]
 wait_time = 600.0
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("7_x7blo")]
+position = Vector2(512, 864)

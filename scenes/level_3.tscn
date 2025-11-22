@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://d4eigmo1n1nl6"]
+[gd_scene load_steps=9 format=4 uid="uid://d4eigmo1n1nl6"]
 
 [ext_resource type="Script" uid="uid://do4xvr10b36ot" path="res://scripts/level_3.gd" id="1_ah8om"]
 [ext_resource type="PackedScene" uid="uid://bjpf8e1m2qix0" path="res://scenes/player.tscn" id="3_hhfj6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="5_ha73p"]
 [ext_resource type="PackedScene" uid="uid://bvrassaqav31h" path="res://scenes/collision_cone.tscn" id="5_p6vls"]
 [ext_resource type="PackedScene" uid="uid://cye4xtr77otsd" path="res://scenes/boost_pad.tscn" id="6_hhfj6"]
+[ext_resource type="PackedScene" uid="uid://b2hymui64x4pb" path="res://scenes/checkpoint.tscn" id="8_wae8j"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_ah8om")
@@ -31,28 +32,58 @@ tile_set = ExtResource("3_wae8j")
 [node name="BoostPad" parent="." instance=ExtResource("6_hhfj6")]
 position = Vector2(128, 1120)
 
-[node name="Obstacles" type="Node" parent="."]
+[node name="Parts" type="Node" parent="."]
 
-[node name="Cone" parent="Obstacles" instance=ExtResource("5_p6vls")]
+[node name="Obstacles" type="Node" parent="Parts"]
+
+[node name="Cone" parent="Parts/Obstacles" instance=ExtResource("5_p6vls")]
 position = Vector2(320, -584)
 
-[node name="Cone2" parent="Obstacles" instance=ExtResource("5_p6vls")]
+[node name="Cone2" parent="Parts/Obstacles" instance=ExtResource("5_p6vls")]
 position = Vector2(896, 760)
 
-[node name="Cone3" parent="Obstacles" instance=ExtResource("5_p6vls")]
+[node name="Cone3" parent="Parts/Obstacles" instance=ExtResource("5_p6vls")]
 position = Vector2(1632, -96)
 
-[node name="Cone4" parent="Obstacles" instance=ExtResource("5_p6vls")]
+[node name="Cone4" parent="Parts/Obstacles" instance=ExtResource("5_p6vls")]
 position = Vector2(992, -1152)
 
-[node name="Cone5" parent="Obstacles" instance=ExtResource("5_p6vls")]
+[node name="Cone5" parent="Parts/Obstacles" instance=ExtResource("5_p6vls")]
 position = Vector2(-560, -1072)
 
-[node name="Cone6" parent="Obstacles" instance=ExtResource("5_p6vls")]
+[node name="Cone6" parent="Parts/Obstacles" instance=ExtResource("5_p6vls")]
 position = Vector2(-840, 840)
 
-[node name="Cone7" parent="Obstacles" instance=ExtResource("5_p6vls")]
+[node name="Cone7" parent="Parts/Obstacles" instance=ExtResource("5_p6vls")]
 position = Vector2(0, 2624)
+
+[node name="Checkpoints" type="Node" parent="Parts"]
+
+[node name="Checkpoint" parent="Parts/Checkpoints" instance=ExtResource("8_wae8j")]
+position = Vector2(512, 864)
+
+[node name="Checkpoint2" parent="Parts/Checkpoints" instance=ExtResource("8_wae8j")]
+position = Vector2(896, 664)
+
+[node name="Checkpoint3" parent="Parts/Checkpoints" instance=ExtResource("8_wae8j")]
+position = Vector2(1664, 128)
+
+[node name="Checkpoint4" parent="Parts/Checkpoints" instance=ExtResource("8_wae8j")]
+position = Vector2(1152, -608)
+
+[node name="Checkpoint5" parent="Parts/Checkpoints" instance=ExtResource("8_wae8j")]
+position = Vector2(192, -1152)
+rotation = 1.5708
+
+[node name="Checkpoint6" parent="Parts/Checkpoints" instance=ExtResource("8_wae8j")]
+position = Vector2(-640, -512)
+
+[node name="Checkpoint7" parent="Parts/Checkpoints" instance=ExtResource("8_wae8j")]
+position = Vector2(-1152, 432)
+
+[node name="Checkpoint8" parent="Parts/Checkpoints" instance=ExtResource("8_wae8j")]
+position = Vector2(-128, 1408)
+rotation = 1.5708
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)

@@ -19,7 +19,7 @@ func level_done():
 	$UI.visible = false
 	$Player.movement_disabled = true
 	var finish_screen = finish_scene.instantiate()
-	finish_screen.replay_scene = "res://scenes/level_10.tscn"
+	finish_screen.replay_scene = "res://scenes/level_bonus.tscn"
 	add_child(finish_screen)
 	
 
@@ -51,7 +51,7 @@ func _physics_process(delta):
 			started = true
 		$UI.update_ui(lap_count)
 	elif Input.is_action_just_pressed("ui_accept"):
-		get_tree().change_scene_to_file("res://scenes/level_10.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_bonus.tscn")
 
 func _on_finish_passed():
 	if $UI/Timer.is_stopped():
