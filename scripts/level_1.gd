@@ -19,6 +19,10 @@ func level_done():
 	$Player.movement_disabled = true
 	var finish_screen = finish_scene.instantiate()
 	finish_screen.replay_scene = "res://scenes/level_1.tscn"
+	
+	# Stop the music and play victory or loss music
+	if Settings.music:
+		$Music.stop()
 	add_child(finish_screen)
 	
 
@@ -32,6 +36,10 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("accelerate") and !started:
 			$UI/Timer.start()
 			started = true
+			
+			# If we enabled music, also start the level music
+			if Settings.music:
+				$Music.play()
 		$UI.update_ui(lap_count)
 	elif Input.is_action_just_pressed("ui_accept"):
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn")

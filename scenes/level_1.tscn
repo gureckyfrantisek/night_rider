@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://dsmb2n0657frc"]
+[gd_scene load_steps=7 format=4 uid="uid://dsmb2n0657frc"]
 
 [ext_resource type="PackedScene" uid="uid://bjpf8e1m2qix0" path="res://scenes/player.tscn" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://um7dfhyn2och" path="res://scripts/level_1.gd" id="1_hn12h"]
 [ext_resource type="TileSet" uid="uid://dbmqlp8mrhdsd" path="res://assets/my_map.tres" id="3_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://q58ddm5yhy1f" path="res://scenes/finish.tscn" id="4_ihfcg"]
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="5_rka8t"]
+[ext_resource type="AudioStream" uid="uid://dxlnt43166i5h" path="res://assets/music/race.mp3" id="6_fcfvj"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_hn12h")
@@ -59,3 +60,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="UI"]
 wait_time = 600.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fcfvj")
+parameters/looping = true

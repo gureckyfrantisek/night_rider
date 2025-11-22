@@ -91,18 +91,19 @@ visible = false
 
 [node name="Drift" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("5_qlg0r")
+volume_db = -50.0
 
 [node name="Motor" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("6_smehm")
-volume_db = -5.0
+volume_db = -50.0
 
 [node name="Acceleration" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("6_tuyoq")
-volume_db = -5.0
+volume_db = -50.0
 
 [node name="Reverse" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_fjrip")
-volume_db = -2.5
+volume_db = -50.0
 
 [connection signal="body_entered" from="Grass" to="." method="_on_grass_body_entered"]
 [connection signal="body_exited" from="Grass" to="." method="_on_grass_body_exited"]
