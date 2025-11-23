@@ -11,6 +11,13 @@ func level_done():
 	if Times.level1 == null or Times.level1 > Times.last_played:
 		Times.level1 = Times.last_played
 		Times.was_new_best = true
+		
+	# Stop the music and play victory or loss music
+	$Sounds/Music.stop()
+	if Times.was_new_best:
+		$Sounds/Victory.play()
+	else:
+		$Sounds/Loss.play()
 	
 	# Call save data
 	Times.save_data()
@@ -21,9 +28,7 @@ func level_done():
 	var finish_screen = finish_scene.instantiate()
 	finish_screen.replay_scene = "res://scenes/level_1.tscn"
 	
-	# Stop the music and play victory or loss music
-	if Settings.music:
-		$Music.stop()
+	
 	add_child(finish_screen)
 	
 
@@ -49,7 +54,7 @@ func _physics_process(delta):
 			
 			# If we enabled music, also start the level music
 			if Settings.music:
-				$Music.play()
+				$Sounds/Music.play()
 		$UI.update_ui(lap_count)
 	elif Input.is_action_just_pressed("ui_accept"):
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn")

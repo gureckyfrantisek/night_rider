@@ -8,8 +8,7 @@ func _ready():
 	$Settings/Sounds/Music.button_pressed = Settings.music
 	$Settings/Sounds/Sounds.button_pressed = Settings.sounds
 	
-	if Settings.music:
-		$Music.play()
+	$Music.play()
 
 func _on_level_1_mouse_entered():
 	if Times.level1 == null:
@@ -169,12 +168,18 @@ func _on_music_toggled(toggled_on: bool) -> void:
 	Settings.music = $Settings/Sounds/Music.button_pressed
 	Settings.save_settings()
 	
-	if $Music.playing and not Settings.music:
-		$Music.stop()
-	elif not $Music.playing and Settings.music:
-		$Music.play()
+	if Settings.music:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), false)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), true)
+		
 
 
 func _on_sounds_toggled(toggled_on: bool) -> void:
 	Settings.sounds = $Settings/Sounds/Sounds.button_pressed
 	Settings.save_settings()
+	
+	if Settings.sounds:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), false)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), true)

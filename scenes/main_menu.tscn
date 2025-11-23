@@ -164,6 +164,7 @@ text = "SFX:"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ekxnf")
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="mouse_entered" from="Levels/LevelsTop/Level1" to="." method="_on_level_1_mouse_entered"]

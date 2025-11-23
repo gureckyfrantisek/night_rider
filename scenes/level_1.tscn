@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dsmb2n0657frc"]
+[gd_scene load_steps=10 format=4 uid="uid://dsmb2n0657frc"]
 
 [ext_resource type="PackedScene" uid="uid://bjpf8e1m2qix0" path="res://scenes/player.tscn" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://um7dfhyn2och" path="res://scripts/level_1.gd" id="1_hn12h"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="5_rka8t"]
 [ext_resource type="PackedScene" uid="uid://b2hymui64x4pb" path="res://scenes/checkpoint.tscn" id="6_fcfvj"]
 [ext_resource type="AudioStream" uid="uid://dxlnt43166i5h" path="res://assets/music/race.mp3" id="6_pa8r4"]
+[ext_resource type="AudioStream" uid="uid://dxdjj8nl0ma5u" path="res://assets/music/victory.mp3" id="7_e3sih"]
+[ext_resource type="AudioStream" uid="uid://cs8k20mlxsx32" path="res://assets/music/loss.mp3" id="8_2y5yt"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_hn12h")
@@ -62,9 +64,19 @@ metadata/_edit_use_anchors_ = true
 [node name="Timer" type="Timer" parent="UI"]
 wait_time = 600.0
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("6_pa8r4")
 parameters/looping = true
+
+[node name="Victory" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_e3sih")
+bus = &"Music"
+
+[node name="Loss" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_2y5yt")
+bus = &"Music"
 
 [node name="Parts" type="Node" parent="."]
 
