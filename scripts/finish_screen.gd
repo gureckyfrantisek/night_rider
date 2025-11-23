@@ -4,9 +4,9 @@ var replay_scene
 
 func _ready():
 	if Times.was_new_best:
-		$VBoxContainer/ColorRect/Label.text = 'NEW RECORD!\nTime: ' + str(snappedf(Times.last_played, 0.001)) + 's'
+		$VBoxContainer/ColorRect/Label.text = 'NEW RECORD!\nTime: ' + str(snappedf(Times.last_played, 0.001)) + ' s'
 	else:
-		$VBoxContainer/ColorRect/Label.text = 'Level Finished!\nTime: ' + str(snappedf(Times.last_played, 0.001)) + 's'
+		$VBoxContainer/ColorRect/Label.text = 'Level Finished!\nTime: ' + str(snappedf(Times.last_played, 0.001)) + ' s'
 
 
 func _on_restart_pressed():
