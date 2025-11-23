@@ -13,7 +13,7 @@ config_version=5
 config/name="Night rider"
 run/main_scene="uid://bk3x7hwmcbjtr"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://blx7cqvkycs0t"
 
 [autoload]
 
