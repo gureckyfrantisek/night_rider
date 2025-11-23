@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=4 uid="uid://chhm5sv5dtxk8"]
+[gd_scene load_steps=11 format=4 uid="uid://chhm5sv5dtxk8"]
 
 [ext_resource type="Script" uid="uid://b5ngku2s1agld" path="res://scripts/level_7.gd" id="1_v7yg4"]
 [ext_resource type="TileSet" uid="uid://dbmqlp8mrhdsd" path="res://assets/my_map.tres" id="3_ci1vt"]
 [ext_resource type="PackedScene" uid="uid://bvrassaqav31h" path="res://scenes/collision_cone.tscn" id="3_ophlp"]
+[ext_resource type="PackedScene" uid="uid://b2hymui64x4pb" path="res://scenes/checkpoint.tscn" id="4_fsh38"]
 [ext_resource type="PackedScene" uid="uid://bjpf8e1m2qix0" path="res://scenes/player.tscn" id="4_wu5f3"]
 [ext_resource type="PackedScene" uid="uid://q58ddm5yhy1f" path="res://scenes/finish.tscn" id="5_fsh38"]
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="6_e8vmx"]
+[ext_resource type="AudioStream" uid="uid://dxlnt43166i5h" path="res://assets/music/race.mp3" id="7_wu5f3"]
+[ext_resource type="AudioStream" uid="uid://dxdjj8nl0ma5u" path="res://assets/music/victory.mp3" id="8_fsh38"]
+[ext_resource type="AudioStream" uid="uid://cs8k20mlxsx32" path="res://assets/music/loss.mp3" id="9_e8vmx"]
 
 [node name="Level7" type="Node2D"]
 script = ExtResource("1_v7yg4")
@@ -37,36 +41,84 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAD///v/AAAVABQAAAD///r/AAAVABQAAAD///z/AAAVABUAAAAEAPr/AAATABQAAAAEAPv/AAATABQAAAAEAPz/AAATABQAAAD///n/AAAVABMAAAAEAPn/AAATABMAAAAEAP3/AAATABUAAAA=")
 tile_set = ExtResource("3_ci1vt")
 
-[node name="Obstacles" type="Node" parent="."]
+[node name="Parts" type="Node" parent="."]
 
-[node name="Cone" parent="Obstacles" instance=ExtResource("3_ophlp")]
+[node name="Obstacles" type="Node" parent="Parts"]
+
+[node name="Cone" parent="Parts/Obstacles" instance=ExtResource("3_ophlp")]
 position = Vector2(-96, -608)
 
-[node name="Cone2" parent="Obstacles" instance=ExtResource("3_ophlp")]
+[node name="Cone2" parent="Parts/Obstacles" instance=ExtResource("3_ophlp")]
 position = Vector2(-1104, -864)
 
-[node name="Cone3" parent="Obstacles" instance=ExtResource("3_ophlp")]
+[node name="Cone3" parent="Parts/Obstacles" instance=ExtResource("3_ophlp")]
 position = Vector2(64, -1520)
 
-[node name="Cone4" parent="Obstacles" instance=ExtResource("3_ophlp")]
+[node name="Cone4" parent="Parts/Obstacles" instance=ExtResource("3_ophlp")]
 position = Vector2(544, -864)
 
-[node name="Cone5" parent="Obstacles" instance=ExtResource("3_ophlp")]
+[node name="Cone5" parent="Parts/Obstacles" instance=ExtResource("3_ophlp")]
 position = Vector2(1056, 32)
 
-[node name="Cone6" parent="Obstacles" instance=ExtResource("3_ophlp")]
+[node name="Cone6" parent="Parts/Obstacles" instance=ExtResource("3_ophlp")]
 position = Vector2(1280, 704)
 
-[node name="Cone7" parent="Obstacles" instance=ExtResource("3_ophlp")]
+[node name="Cone7" parent="Parts/Obstacles" instance=ExtResource("3_ophlp")]
 position = Vector2(640, 928)
 
-[node name="Cone8" parent="Obstacles" instance=ExtResource("3_ophlp")]
+[node name="Cone8" parent="Parts/Obstacles" instance=ExtResource("3_ophlp")]
 position = Vector2(-480, 352)
 
+[node name="Checkpoints" type="Node" parent="Parts"]
+
+[node name="Checkpoint" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(-320, -832)
+rotation = 1.5708
+
+[node name="Checkpoint2" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(-768, -448)
+rotation = 1.5708
+
+[node name="Checkpoint3" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(-1024, -896)
+
+[node name="Checkpoint4" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(-576, -1344)
+rotation = 1.5708
+
+[node name="Checkpoint5" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(64, -1600)
+rotation = 1.5708
+
+[node name="Checkpoint6" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(544, -864)
+rotation = 2.35619
+
+[node name="Checkpoint7" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(1056, 32)
+rotation = 2.35619
+
+[node name="Checkpoint8" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(1024, 704)
+rotation = 1.5708
+
+[node name="Checkpoint9" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(640, 968)
+rotation = 1.5708
+
+[node name="Checkpoint10" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(-112, 704)
+rotation = 1.5708
+
+[node name="Checkpoint11" parent="Parts/Checkpoints" instance=ExtResource("4_fsh38")]
+position = Vector2(-768, 64)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_wu5f3")]
+visible = false
 position = Vector2(128, -272)
 rotation = -1.5708
 
@@ -94,3 +146,17 @@ text = "Laps left: "
 
 [node name="Timer" type="Timer" parent="UI"]
 wait_time = 600.0
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_wu5f3")
+parameters/looping = true
+
+[node name="Victory" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_fsh38")
+bus = &"Music"
+
+[node name="Loss" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_e8vmx")
+bus = &"Music"

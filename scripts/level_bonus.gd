@@ -11,6 +11,13 @@ func level_done():
 	if Times.bonus == null or Times.bonus > Times.last_played:
 		Times.bonus = Times.last_played
 		Times.was_new_best = true
+		
+	# Stop the music and play victory or loss music
+	$Sounds/Music.stop()
+	if Times.was_new_best:
+		$Sounds/Victory.play()
+	else:
+		$Sounds/Loss.play()
 	
 	# Call save data
 	Times.save_data()
@@ -49,6 +56,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("accelerate") and !started:
 			$UI/Timer.start()
 			started = true
+			
+			$Sounds/Music.play()
 		$UI.update_ui(lap_count)
 	elif Input.is_action_just_pressed("ui_accept"):
 		get_tree().change_scene_to_file("res://scenes/level_bonus.tscn")

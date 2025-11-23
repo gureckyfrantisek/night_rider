@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=4 uid="uid://ixi7ptxhxxb6"]
+[gd_scene load_steps=11 format=4 uid="uid://ixi7ptxhxxb6"]
 
 [ext_resource type="Script" uid="uid://b3quafx8v7vvm" path="res://scripts/level_5.gd" id="1_cynta"]
 [ext_resource type="TileSet" uid="uid://dbmqlp8mrhdsd" path="res://assets/my_map.tres" id="3_ak5vt"]
 [ext_resource type="PackedScene" uid="uid://bvrassaqav31h" path="res://scenes/collision_cone.tscn" id="3_ij176"]
 [ext_resource type="PackedScene" uid="uid://bjpf8e1m2qix0" path="res://scenes/player.tscn" id="4_uva14"]
+[ext_resource type="PackedScene" uid="uid://b2hymui64x4pb" path="res://scenes/checkpoint.tscn" id="4_vqwqk"]
 [ext_resource type="PackedScene" uid="uid://q58ddm5yhy1f" path="res://scenes/finish.tscn" id="5_vqwqk"]
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="6_1q3ip"]
+[ext_resource type="AudioStream" uid="uid://dxlnt43166i5h" path="res://assets/music/race.mp3" id="7_uva14"]
+[ext_resource type="AudioStream" uid="uid://dxdjj8nl0ma5u" path="res://assets/music/victory.mp3" id="8_vqwqk"]
+[ext_resource type="AudioStream" uid="uid://cs8k20mlxsx32" path="res://assets/music/loss.mp3" id="9_1q3ip"]
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_cynta")
@@ -27,28 +31,51 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAD///v/AAAVABQAAAD///r/AAAVABQAAAD///z/AAAVABQAAAAEAPr/AAATABQAAAAEAPv/AAATABQAAAAEAPz/AAATABQAAAD///3/AAAVABUAAAD///n/AAAVABMAAAAEAPn/AAATABMAAAAEAP3/AAATABUAAAAAAO7/AAAOABMAAAABAO7/AAAPABMAAAACAO7/AAAPABMAAAABAPH/AAAPABUAAAACAPH/AAAPABUAAAAAAPH/AAAOABUAAAAAAO//AAAOABQAAAAAAPD/AAAOABQAAAADAO//AAAQABQAAAADAPD/AAAQABQAAAADAO7/AAAQABMAAAADAPH/AAAQABUAAAABAO//AAAPABQAAAABAPD/AAAeABQAAAACAO//AAAPABQAAAACAPD/AAAYAAsAAAA=")
 tile_set = ExtResource("3_ak5vt")
 
-[node name="Obstacles" type="Node" parent="."]
+[node name="Parts" type="Node" parent="."]
 
-[node name="Cone" parent="Obstacles" instance=ExtResource("3_ij176")]
+[node name="Obstacles" type="Node" parent="Parts"]
+
+[node name="Cone" parent="Parts/Obstacles" instance=ExtResource("3_ij176")]
 position = Vector2(128, -608)
 
-[node name="Cone2" parent="Obstacles" instance=ExtResource("3_ij176")]
+[node name="Cone2" parent="Parts/Obstacles" instance=ExtResource("3_ij176")]
 position = Vector2(160, -1888)
 
-[node name="Cone3" parent="Obstacles" instance=ExtResource("3_ij176")]
+[node name="Cone3" parent="Parts/Obstacles" instance=ExtResource("3_ij176")]
 position = Vector2(1184, -1696)
 
-[node name="Cone4" parent="Obstacles" instance=ExtResource("3_ij176")]
+[node name="Cone4" parent="Parts/Obstacles" instance=ExtResource("3_ij176")]
 position = Vector2(1712, -1360)
 
-[node name="Cone5" parent="Obstacles" instance=ExtResource("3_ij176")]
+[node name="Cone5" parent="Parts/Obstacles" instance=ExtResource("3_ij176")]
 position = Vector2(1920, -320)
 
-[node name="Cone6" parent="Obstacles" instance=ExtResource("3_ij176")]
+[node name="Cone6" parent="Parts/Obstacles" instance=ExtResource("3_ij176")]
 position = Vector2(960, 640)
 
-[node name="Cone7" parent="Obstacles" instance=ExtResource("3_ij176")]
+[node name="Cone7" parent="Parts/Obstacles" instance=ExtResource("3_ij176")]
 position = Vector2(-200, 256)
+
+[node name="Checkpoints" type="Node" parent="Parts"]
+
+[node name="Checkpoint" parent="Parts/Checkpoints" instance=ExtResource("4_vqwqk")]
+position = Vector2(128, -1600)
+
+[node name="Checkpoint2" parent="Parts/Checkpoints" instance=ExtResource("4_vqwqk")]
+position = Vector2(1920, -1536)
+
+[node name="Checkpoint3" parent="Parts/Checkpoints" instance=ExtResource("4_vqwqk")]
+position = Vector2(1152, -704)
+
+[node name="Checkpoint4" parent="Parts/Checkpoints" instance=ExtResource("4_vqwqk")]
+position = Vector2(1920, -320)
+
+[node name="Checkpoint5" parent="Parts/Checkpoints" instance=ExtResource("4_vqwqk")]
+position = Vector2(960, 640)
+rotation = 1.5708
+
+[node name="Checkpoint6" parent="Parts/Checkpoints" instance=ExtResource("4_vqwqk")]
+position = Vector2(-128, 256)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
@@ -81,3 +108,17 @@ text = "Laps left: "
 
 [node name="Timer" type="Timer" parent="UI"]
 wait_time = 600.0
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_uva14")
+parameters/looping = true
+
+[node name="Victory" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_vqwqk")
+bus = &"Music"
+
+[node name="Loss" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_1q3ip")
+bus = &"Music"

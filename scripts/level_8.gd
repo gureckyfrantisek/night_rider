@@ -1,6 +1,7 @@
 extends Node2D
 
 var lap_count = 3
+var checkpoint_count = 0
 var started = false
 
 var finish_scene = load("res://scenes/finish_screen.tscn")
@@ -10,6 +11,13 @@ func level_done():
 	if Times.level8 == null or Times.level8 > Times.last_played:
 		Times.level8 = Times.last_played
 		Times.was_new_best = true
+		
+	# Stop the music and play victory or loss music
+	$Sounds/Music.stop()
+	if Times.was_new_best:
+		$Sounds/Victory.play()
+	else:
+		$Sounds/Loss.play()
 	
 	# Call save data
 	Times.save_data()
@@ -26,12 +34,23 @@ func _ready():
 	Times.was_new_best = false
 	$Finish.connect("passed", _on_finish_passed)
 	$UI.update_ui(lap_count)
+	
+	_connect_checkpoints()
+
+func _connect_checkpoints():
+	var checkpoints = $Parts/Checkpoints.get_children()
+	checkpoint_count = checkpoints.size()
+	
+	for cp in checkpoints:
+		cp.connect("passed", _on_checkpoint_passed)
 
 func _physics_process(delta):
 	if lap_count != 0:
 		if Input.is_action_just_pressed("accelerate") and !started:
 			$UI/Timer.start()
 			started = true
+			
+			$Sounds/Music.play()
 		$UI.update_ui(lap_count)
 	elif Input.is_action_just_pressed("ui_accept"):
 		get_tree().change_scene_to_file("res://scenes/level_8.tscn")
@@ -39,7 +58,14 @@ func _physics_process(delta):
 func _on_finish_passed():
 	if $UI/Timer.is_stopped():
 		return
-	lap_count -= 1
-	print(lap_count)
-	if lap_count == 0:
-		level_done()
+	print(checkpoint_count)
+	if checkpoint_count <= 0:
+		lap_count -= 1
+		print(lap_count)
+		if lap_count == 0:
+			level_done()
+		checkpoint_count = $Parts/Checkpoints.get_child_count()
+
+func _on_checkpoint_passed():
+	print("Checkpoint passed")
+	checkpoint_count -= 1

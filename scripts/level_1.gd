@@ -52,9 +52,7 @@ func _physics_process(delta):
 			$UI/Timer.start()
 			started = true
 			
-			# If we enabled music, also start the level music
-			if Settings.music:
-				$Sounds/Music.play()
+			$Sounds/Music.play()
 		$UI.update_ui(lap_count)
 	elif Input.is_action_just_pressed("ui_accept"):
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn")

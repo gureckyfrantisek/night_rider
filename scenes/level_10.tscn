@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=4 uid="uid://csfd7flmnl8ts"]
+[gd_scene load_steps=12 format=4 uid="uid://csfd7flmnl8ts"]
 
 [ext_resource type="Script" uid="uid://dr0mh0tdji2x2" path="res://scripts/level_10.gd" id="1_yo2sm"]
+[ext_resource type="PackedScene" uid="uid://b2hymui64x4pb" path="res://scenes/checkpoint.tscn" id="3_68dkj"]
 [ext_resource type="PackedScene" uid="uid://bvrassaqav31h" path="res://scenes/collision_cone.tscn" id="3_ng28g"]
 [ext_resource type="TileSet" uid="uid://dbmqlp8mrhdsd" path="res://assets/my_map.tres" id="3_uk14l"]
 [ext_resource type="PackedScene" uid="uid://bjpf8e1m2qix0" path="res://scenes/player.tscn" id="4_yxmu7"]
 [ext_resource type="PackedScene" uid="uid://q58ddm5yhy1f" path="res://scenes/finish.tscn" id="5_7d08f"]
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="6_68dkj"]
 [ext_resource type="PackedScene" uid="uid://cye4xtr77otsd" path="res://scenes/boost_pad.tscn" id="7_uk14l"]
+[ext_resource type="AudioStream" uid="uid://dxlnt43166i5h" path="res://assets/music/race.mp3" id="8_7d08f"]
+[ext_resource type="AudioStream" uid="uid://dxdjj8nl0ma5u" path="res://assets/music/victory.mp3" id="9_68dkj"]
+[ext_resource type="AudioStream" uid="uid://cs8k20mlxsx32" path="res://assets/music/loss.mp3" id="10_bg236"]
 
 [node name="Level10" type="Node2D"]
 script = ExtResource("1_yo2sm")
@@ -28,58 +32,143 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAD///v/AAAVABQAAAD///r/AAAVABQAAAD///z/AAAVABQAAAAEAPr/AAATABQAAAAEAPv/AAATABQAAAAEAPz/AAATABQAAAD///3/AAAVABUAAAD///n/AAAVABMAAAAEAPn/AAATABMAAAAEAP3/AAATABUAAAA=")
 tile_set = ExtResource("3_uk14l")
 
-[node name="Obstacles" type="Node" parent="."]
+[node name="Parts" type="Node" parent="."]
 
-[node name="Cone" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Checkpoints" type="Node" parent="Parts"]
+
+[node name="Checkpoint" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(40, -624)
+rotation = 2.35619
+
+[node name="Checkpoint2" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(-216, -984)
+rotation = 0.785398
+
+[node name="Checkpoint3" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(464, -976)
+rotation = 2.35619
+
+[node name="Checkpoint4" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(472, 472)
+rotation = 0.785398
+
+[node name="Checkpoint5" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(-472, 552)
+rotation = 0.785398
+
+[node name="Checkpoint6" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(-216, 1112)
+rotation = 2.35619
+
+[node name="Checkpoint7" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(728, 1112)
+rotation = 0.785398
+
+[node name="Checkpoint8" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(1064, 424)
+rotation = 0.785398
+
+[node name="Checkpoint9" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(1408, 128)
+
+[node name="Checkpoint10" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(1024, -352)
+
+[node name="Checkpoint11" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(1472, -832)
+
+[node name="Checkpoint12" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(984, -1496)
+rotation = 2.35619
+
+[node name="Checkpoint13" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(-664, -1496)
+rotation = 0.785398
+
+[node name="Checkpoint14" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(-744, -936)
+rotation = 0.785398
+
+[node name="Checkpoint15" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(-1272, -768)
+
+[node name="Checkpoint16" parent="Parts/Checkpoints" instance=ExtResource("3_68dkj")]
+position = Vector2(-344, 88)
+rotation = 2.35619
+
+[node name="Obstacles" type="Node" parent="Parts"]
+
+[node name="Cone" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(-192, -832)
 
-[node name="Cone2" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone2" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(480, -992)
 
-[node name="Cone3" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone3" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(408, 408)
 
-[node name="Cone5" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone5" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(536, 536)
 
-[node name="Cone6" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone6" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(-384, 896)
 
-[node name="Cone7" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone7" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(-128, 1152)
 
-[node name="Cone8" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone8" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(256, 1408)
 
-[node name="Cone9" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone9" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(640, 1152)
 
-[node name="Cone10" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone10" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(896, 896)
 
-[node name="Cone11" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone11" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(1344, 128)
 
-[node name="Cone12" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone12" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(1544, -832)
 
-[node name="Cone13" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone13" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(992, -1504)
 
-[node name="Cone14" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone14" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(-672, -1504)
 
-[node name="Cone15" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone15" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(-784, -976)
 
-[node name="Cone16" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone16" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(-1312, -768)
 
-[node name="Cone17" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone17" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(-800, -416)
 
-[node name="Cone18" parent="Obstacles" instance=ExtResource("3_ng28g")]
+[node name="Cone18" parent="Parts/Obstacles" instance=ExtResource("3_ng28g")]
 position = Vector2(-128, 208)
+
+[node name="BoostPads" type="Node" parent="Parts"]
+
+[node name="BoostPad" parent="Parts/BoostPads" instance=ExtResource("7_uk14l")]
+position = Vector2(64, -32)
+
+[node name="BoostPad2" parent="Parts/BoostPads" instance=ExtResource("7_uk14l")]
+position = Vector2(512, -800)
+rotation = 3.14159
+
+[node name="BoostPad3" parent="Parts/BoostPads" instance=ExtResource("7_uk14l")]
+position = Vector2(448, 1376)
+rotation = 0.785398
+
+[node name="BoostPad4" parent="Parts/BoostPads" instance=ExtResource("7_uk14l")]
+position = Vector2(832, -1472)
+rotation = 4.71239
+
+[node name="BoostPad5" parent="Parts/BoostPads" instance=ExtResource("7_uk14l")]
+position = Vector2(-976, -568)
+rotation = 2.35619
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
@@ -113,5 +202,16 @@ text = "Laps left: "
 [node name="Timer" type="Timer" parent="UI"]
 wait_time = 600.0
 
-[node name="BoostPad" parent="." instance=ExtResource("7_uk14l")]
-position = Vector2(128, -104)
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_7d08f")
+parameters/looping = true
+
+[node name="Victory" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_68dkj")
+bus = &"Music"
+
+[node name="Loss" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_bg236")
+bus = &"Music"

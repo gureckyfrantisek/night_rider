@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cweiyr7f4q0u7"]
+[gd_scene load_steps=10 format=4 uid="uid://cweiyr7f4q0u7"]
 
 [ext_resource type="Script" uid="uid://bhje7xg0qpnlh" path="res://scripts/level_2.gd" id="1_b4j7a"]
 [ext_resource type="TileSet" uid="uid://dbmqlp8mrhdsd" path="res://assets/my_map.tres" id="3_wo48x"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://q58ddm5yhy1f" path="res://scenes/finish.tscn" id="4_ne2mo"]
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="5_6cvei"]
 [ext_resource type="PackedScene" uid="uid://b2hymui64x4pb" path="res://scenes/checkpoint.tscn" id="6_wo48x"]
+[ext_resource type="AudioStream" uid="uid://dxlnt43166i5h" path="res://assets/music/race.mp3" id="7_6cvei"]
+[ext_resource type="AudioStream" uid="uid://dxdjj8nl0ma5u" path="res://assets/music/victory.mp3" id="8_que50"]
+[ext_resource type="AudioStream" uid="uid://cs8k20mlxsx32" path="res://assets/music/loss.mp3" id="9_hey2k"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_b4j7a")
@@ -87,3 +90,17 @@ text = "Laps left: "
 
 [node name="Timer" type="Timer" parent="UI"]
 wait_time = 600.0
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_6cvei")
+parameters/looping = true
+
+[node name="Victory" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_que50")
+bus = &"Music"
+
+[node name="Loss" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_hey2k")
+bus = &"Music"
