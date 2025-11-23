@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://neomp181hre3"]
+[gd_scene load_steps=3 format=3 uid="uid://neomp181hre3"]
 
 [ext_resource type="Script" uid="uid://sdbng7v5pi57" path="res://scenes/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="FontFile" uid="uid://ul4b6c1v4nkp" path="res://assets/fonts/edit-undo.brk.ttf" id="2_myx47"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -23,6 +24,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Header"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
 theme_override_font_sizes/font_size = 50
 text = "PAUSED"
 horizontal_alignment = 1
@@ -39,6 +41,7 @@ alignment = 1
 process_mode = 3
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
 text = "RESUME"
 
 [node name="Label2" type="Label" parent="Header"]
@@ -52,6 +55,7 @@ alignment = 1
 process_mode = 3
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_myx47")
 text = "QUIT TO MENU"
 
 [connection signal="pressed" from="Header/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
