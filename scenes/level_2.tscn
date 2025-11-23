@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cweiyr7f4q0u7"]
+[gd_scene load_steps=11 format=4 uid="uid://cweiyr7f4q0u7"]
 
 [ext_resource type="Script" uid="uid://bhje7xg0qpnlh" path="res://scripts/level_2.gd" id="1_b4j7a"]
 [ext_resource type="TileSet" uid="uid://dbmqlp8mrhdsd" path="res://assets/my_map.tres" id="3_wo48x"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="5_6cvei"]
 [ext_resource type="PackedScene" uid="uid://b2hymui64x4pb" path="res://scenes/checkpoint.tscn" id="6_wo48x"]
 [ext_resource type="AudioStream" uid="uid://dxlnt43166i5h" path="res://assets/music/race.mp3" id="7_6cvei"]
+[ext_resource type="FontFile" uid="uid://ul4b6c1v4nkp" path="res://assets/fonts/edit-undo.brk.ttf" id="7_que50"]
 [ext_resource type="AudioStream" uid="uid://dxdjj8nl0ma5u" path="res://assets/music/victory.mp3" id="8_que50"]
 [ext_resource type="AudioStream" uid="uid://cs8k20mlxsx32" path="res://assets/music/loss.mp3" id="9_hey2k"]
 
@@ -78,6 +79,7 @@ offset_left = 12.0
 offset_top = 12.0
 offset_right = 98.0
 offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("7_que50")
 text = "Time:"
 
 [node name="LapLabel" type="Label" parent="UI"]
@@ -86,6 +88,7 @@ offset_left = 12.0
 offset_top = 48.0
 offset_right = 98.0
 offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("7_que50")
 text = "Laps left: "
 
 [node name="Timer" type="Timer" parent="UI"]

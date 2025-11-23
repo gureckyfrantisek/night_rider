@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk3x7hwmcbjtr"]
+[gd_scene load_steps=4 format=3 uid="uid://bk3x7hwmcbjtr"]
 
 [ext_resource type="Script" uid="uid://uqtnguw2k512" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://ul4b6c1v4nkp" path="res://assets/fonts/edit-undo.brk.ttf" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://d3v5adim3pcpx" path="res://assets/music/main_menu.mp3" id="2_ekxnf"]
 
 [node name="MainMenu" type="CanvasLayer"]
@@ -27,14 +28,18 @@ grow_horizontal = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="Header"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 50
 text = "Night Rider"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Header"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 25
 text = "Level selection:"
 horizontal_alignment = 1
@@ -54,28 +59,38 @@ layout_mode = 2
 alignment = 1
 
 [node name="Level1" type="Button" parent="Levels/LevelsTop"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 1"
 
 [node name="Level2" type="Button" parent="Levels/LevelsTop"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 2"
 
 [node name="Level3" type="Button" parent="Levels/LevelsTop"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 3"
 
 [node name="Level4" type="Button" parent="Levels/LevelsTop"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 4"
 
 [node name="Level5" type="Button" parent="Levels/LevelsTop"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 5"
 
 [node name="LevelsBot" type="HBoxContainer" parent="Levels"]
@@ -83,28 +98,38 @@ layout_mode = 2
 alignment = 1
 
 [node name="Level6" type="Button" parent="Levels/LevelsBot"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 6"
 
 [node name="Level7" type="Button" parent="Levels/LevelsBot"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 7"
 
 [node name="Level8" type="Button" parent="Levels/LevelsBot"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 8"
 
 [node name="Level9" type="Button" parent="Levels/LevelsBot"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 9"
 
 [node name="Level10" type="Button" parent="Levels/LevelsBot"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "Level 10"
 
 [node name="BONUS" type="HBoxContainer" parent="Levels"]
@@ -112,8 +137,10 @@ layout_mode = 2
 alignment = 1
 
 [node name="Bonus" type="Button" parent="Levels/BONUS"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "BONUS"
 
 [node name="QuitContainer" type="HBoxContainer" parent="Levels"]
@@ -121,8 +148,10 @@ layout_mode = 2
 alignment = 1
 
 [node name="Quit" type="Button" parent="Levels/QuitContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(75, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 text = "QUIT"
 
 [node name="Settings" type="VBoxContainer" parent="."]
@@ -131,7 +160,9 @@ offset_right = 1280.0
 offset_bottom = 676.0
 
 [node name="Label" type="Label" parent="Settings"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
 theme_override_font_sizes/font_size = 24
 text = "Quick settings:"
 horizontal_alignment = 1
@@ -141,8 +172,10 @@ layout_mode = 2
 alignment = 1
 
 [node name="Fixed" type="CheckButton" parent="Settings/Camera"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("2_bqqt6")
 button_pressed = true
 text = "Fixed camera: "
 
@@ -151,14 +184,18 @@ layout_mode = 2
 alignment = 1
 
 [node name="Music" type="CheckButton" parent="Settings/Sounds"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("2_bqqt6")
 button_pressed = true
 text = "Music:"
 
 [node name="Sounds" type="CheckButton" parent="Settings/Sounds"]
+texture_filter = 1
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("2_bqqt6")
 button_pressed = true
 text = "SFX:"
 

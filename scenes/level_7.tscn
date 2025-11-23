@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://chhm5sv5dtxk8"]
+[gd_scene load_steps=12 format=4 uid="uid://chhm5sv5dtxk8"]
 
 [ext_resource type="Script" uid="uid://b5ngku2s1agld" path="res://scripts/level_7.gd" id="1_v7yg4"]
 [ext_resource type="TileSet" uid="uid://dbmqlp8mrhdsd" path="res://assets/my_map.tres" id="3_ci1vt"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://q58ddm5yhy1f" path="res://scenes/finish.tscn" id="5_fsh38"]
 [ext_resource type="Script" uid="uid://ds2vryigdq6kn" path="res://scripts/ui.gd" id="6_e8vmx"]
 [ext_resource type="AudioStream" uid="uid://dxlnt43166i5h" path="res://assets/music/race.mp3" id="7_wu5f3"]
+[ext_resource type="FontFile" uid="uid://ul4b6c1v4nkp" path="res://assets/fonts/edit-undo.brk.ttf" id="8_e8vmx"]
 [ext_resource type="AudioStream" uid="uid://dxdjj8nl0ma5u" path="res://assets/music/victory.mp3" id="8_fsh38"]
 [ext_resource type="AudioStream" uid="uid://cs8k20mlxsx32" path="res://assets/music/loss.mp3" id="9_e8vmx"]
 
@@ -114,11 +115,9 @@ rotation = 1.5708
 position = Vector2(-768, 64)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_wu5f3")]
-visible = false
 position = Vector2(128, -272)
 rotation = -1.5708
 
@@ -134,6 +133,7 @@ offset_left = 12.0
 offset_top = 12.0
 offset_right = 98.0
 offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("8_e8vmx")
 text = "Time:"
 
 [node name="LapLabel" type="Label" parent="UI"]
@@ -142,6 +142,7 @@ offset_left = 12.0
 offset_top = 48.0
 offset_right = 98.0
 offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("8_e8vmx")
 text = "Laps left: "
 
 [node name="Timer" type="Timer" parent="UI"]
