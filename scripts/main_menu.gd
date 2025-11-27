@@ -183,3 +183,8 @@ func _on_sounds_toggled(toggled_on: bool) -> void:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), false)
 	else:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), true)
+
+
+func _on_reset_pressed() -> void:
+		Times.reset_data()
+		print("Data reset and saved.")

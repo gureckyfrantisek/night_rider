@@ -43,6 +43,25 @@ func save_data():
 		file.store_string(JSON.stringify(data))
 		file.close()
 
+func reset_data():
+	if not FileAccess.file_exists(SAVE_FILE_PATH):
+		return
+	
+	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
+	if file:
+		level1 = null
+		level2 = null
+		level3 = null
+		level4 = null
+		level5 = null
+		level6 = null
+		level7 = null
+		level8 = null
+		level9 = null
+		level10 = null
+		bonus = null
+		save_data()
+	
 func load_data():
 	if not FileAccess.file_exists(SAVE_FILE_PATH):
 		return
